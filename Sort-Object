@@ -1,0 +1,31 @@
+Sort-Object
+Module:
+Microsoft.PowerShell.Utility
+Sorts objects by property values. 
+
+Sort-Object
+    [-Stable]
+    [-Descending]
+    [-Unique]
+    [-InputObject <PSObject>]
+    [[-Property] <Object[]>]
+    [-Culture <String>]
+    [-CaseSensitive]
+    [<CommonParameters>]
+    
+The Sort-Object cmdlet sorts objects in ascending or descending order based on object property values. If sort properties are not included in a command, PowerShell uses default sort properties.
+You can sort objects by a single property or multiple properties. Multiple properties use hash tables to sort in ascending order, descending order, or a combination of sort orders. Properties are sorted as case-sensitive or case-insensitive. Use the Unique parameter to eliminate duplicates from the output.
+
+Get-ChildItem -Path C:\Test -File | Sort-Object -Property Length
+
+
+Get-ChildItem -Path $PSHOME  | Sort-Object -Property Length -Descending | Select-Object -Last 5
+
+
+Example 5: Use a hash table to sort properties in ascending and descending order
+This example uses two properties to sort the objects, Status and DisplayName. Status is sorted in descending order and DisplayName is sorted in ascending order.
+A hash table is used to specify the Property parameter's value. The hash table uses an expression to specify the property names and sort orders. For more information about hash tables, see about_Hash_Tables.
+The Status property used in the hash table is an enumerated property. For more information, see ServiceControllerStatus.
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-6
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/sort-object?view=powershell-6
