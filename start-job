@@ -1,0 +1,81 @@
+
+
+CommandLine : Get-ChildItem -Path $PSHOME | Group-Object -Property { $_.Length -gt 20, "21"}
+
+CommandLine : Get-Help Group-Object -Online
+
+CommandLine : Get-ChildItem -Path $PSHOME | Group-Object -Property { $_.Length -gt 20 } -AsHashTable
+
+CommandLine : $true1 = Get-ChildItem -Path $PSHOME | Group-Object -Property { $_.Length -gt 20 } -AsHashTable
+
+CommandLine : $true1
+
+CommandLine : $true1 = Get-ChildItem -Path $PSHOME | Group-Object -Property { $_.Length -gt 20 } -AsHashTable -AsString
+
+CommandLine : $true1
+
+CommandLine : $true1.True
+
+CommandLine : $true1.False
+
+CommandLine : Get-Help Start-Job
+
+CommandLine : Get-Help Start-Job -Examples
+
+CommandLine : Get-Help Start-Job -Online
+
+CommandLine : $a = Start-Job -ScriptBlock {sleep 10}
+
+CommandLine : $a 
+
+CommandLine : $a | Get-Job 
+
+CommandLine : $a | Get-Job 
+
+CommandLine : $a 
+
+CommandLine : $a  | Format-List -Property *
+
+CommandLine : $vms= Get-AzureRmVM 
+
+CommandLine : melon
+
+CommandLine : $vms | ForEach-Object {Get-AzureRmVM -ResourceGroupName $_.ResourceGroupName -Name $_.Name }
+
+CommandLine : $vms= Get-AzureRmVM 
+
+CommandLine : $vms | ForEach-Object {Get-AzureRmVM -ResourceGroupName $_.ResourceGroupName -Name $_.Name }
+
+CommandLine : $vms | ForEach-Object {Get-AzureRmVM -ResourceGroupName $_.ResourceGroupName -Name $_.Name; echo 
+              "`n*******************************`n";Start-Job { Start-AzureRmVM -ResourceGroupName $_.ResourceGroupName 
+              -Name $_.Name} }
+
+CommandLine : Get-Job
+
+CommandLine : Get-AzureRmVM -Status
+
+CommandLine : $vms | ForEach-Object {$r = $_.ResourceGroupName; $n =$_.Name;Get-AzureRmVM -ResourceGroupName $r -Name $n; 
+              echo "`n*******************************`n";Start-Job { Start-AzureRmVM -ResourceGroupName $r -Name $n} ;sleep 
+              3}
+
+CommandLine : Get-AzureRmVM -Status
+
+CommandLine : $r
+
+CommandLine : $n
+
+CommandLine : $vms | ForEach-Object {$r = $_.ResourceGroupName; $n =$_.Name;Get-AzureRmVM -ResourceGroupName $r -Name $n; 
+              echo "`n*******************************`n";sleep 3}
+
+CommandLine : $vms | ForEach-Object {$r = $_.ResourceGroupName; $n =$_.Name;Get-AzureRmVM -ResourceGroupName $r -Name $n; 
+              echo "`n*******************************`n";Start-Job { melon;Start-AzureRmVM -ResourceGroupName $r -Name $n} 
+              ;sleep 3}
+
+CommandLine : Get-AzureRmVM -Status
+
+CommandLine : history
+
+CommandLine : history | Format-List -Property CommandLine
+
+
+
