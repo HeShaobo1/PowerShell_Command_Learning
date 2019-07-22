@@ -1,0 +1,17 @@
+Description
+The Compare-Object cmdlet compares two sets of objects. One set of objects is the "reference set," and the other set is the "difference set."
+
+The result of the comparison indicates whether a property value appeared only in the object from the reference set (indicated by the <= symbol), only in the object from the difference set (indicated by the => symbol) or, if the IncludeEqual parameter is specified, in both objects (indicated by the == symbol).
+
+If the reference set or the difference set is null ($null), this cmdlet generates a terminating error.
+
+
+Compare-Object -ReferenceObject $(Get-Content C:\test\testfile1.txt) -DifferenceObject $(Get-Content C:\test\testfile2.txt)
+
+
+
+
+
+$a = Get-Date
+$b = Get-Date
+diff -ReferenceObject $a -DifferenceObject $b 
